@@ -1,0 +1,10 @@
+{
+  "short_name": "03作者",
+  "name": "落日之城",
+  "description": "Personal blog",
+  "start_url": "/?source=pwa",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3367D6"
+}

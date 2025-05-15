@@ -1,0 +1,29 @@
+<div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <!-- 上面这两是开屏动画的，即加载完毕从加载页面到主页面的过渡 -->
+    <div class="spinner-box">
+        <!-- 填写你的动画 -->
+        <div class="loader">
+            <span class="loader-block"></span>
+            <span class="loader-block"></span>
+            <span class="loader-block"></span>
+            <span class="loader-block"></span>
+            <span class="loader-block"></span>
+            <span class="loader-block"></span>
+            <span class="loader-block"></span>
+            <span class="loader-block"></span>
+            <span class="loader-block"></span>
+        </div>
+        <!-- <div class="loading-word">加载中...</div> -->
+    </div>
+</div>
+<script>
+document.body.style.overflow = 'hidden';//隐藏滚动条
+var endLoading = function () {
+  document.body.style.overflow = 'auto';//加载完毕，出现滚动条
+  document.getElementById('loading-box').classList.add("loaded");
+}
+window.addEventListener('load',endLoading);
+
+</script>
