@@ -15,14 +15,13 @@ jobs:
           key: ${{ secrets.KEY }} # 服务器私钥
           port: 22
           script: |
-            echo "start pull"
-            cd /var/you_code_dir && # 更换成你服务器放代码的地方 @4
+            cd /usr/local/blog
             git checkout . && git pull &&
             if [ $? -ne 0 ]; then
               echo "拉取失败，脚本终止"
               exit 1
             fi &&
-            echo "pull success"
-            chmod +x ./deploy.sh && # 给部署脚本加权限
-            ./deploy.sh
-            echo "deploy success"
+            docker stop myblog && docker rm myblog && docker rmi myapp:v1 &&
+            docker build -t myapp:v1 .
+            docker run -d -p 8080:80 --name myblog myapp:v1
+            echo "脚本执行完成"
