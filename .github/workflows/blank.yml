@@ -5,14 +5,24 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
+      - name: Checkout code
         uses: actions/checkout@v4
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Build and run Go program
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_IP }}	# 服务器地址
+          username: ${{ secrets.USRNAME }} # 登陆用户名
+          key: ${{ secrets.KEY }} # 服务器私钥
+          port: 22
+          script: |
+            echo "start pull"
+            cd /var/you_code_dir && # 更换成你服务器放代码的地方 @4
+            git checkout . && git pull &&
+            if [ $? -ne 0 ]; then
+              echo "拉取失败，脚本终止"
+              exit 1
+            fi &&
+            echo "pull success"
+            chmod +x ./deploy.sh && # 给部署脚本加权限
+            ./deploy.sh
+            echo "deploy success"
