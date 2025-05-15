@@ -25,3 +25,4 @@ jobs:
             docker build -t myapp:v1 .
             docker run -d -p 8080:80 --name myblog myapp:v1
             echo "脚本执行完成"
+    
