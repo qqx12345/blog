@@ -1,5 +1,5 @@
 ---
-title: Hello World
+title: Hello
 categories: 前端
 tags: 前端
 cover: /image/1.jpg

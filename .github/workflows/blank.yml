@@ -16,13 +16,14 @@ jobs:
           port: 22
           script: |
             cd /usr/local/blog
-            git checkout . && git pull &&
-            if [ $? -ne 0 ]; then
-              echo "拉取失败，脚本终止"
-              exit 1
-            fi &&
-            docker stop myblog && docker rm myblog && docker rmi myapp:v1 &&
-            docker build -t myapp:v1 .
-            docker run -d -p 8080:80 --name myblog myapp:v1
-            echo "脚本执行完成"
+            git checkout . && git pull || { echo "❌ 拉取代码失败"; exit 1; }
+            docker ps -a --format '{{.Names}}' | grep -w myblog && docker stop myblog && docker rm myblog || echo "ℹ️ 容器 myblog 不存在，跳过"
+
+            # 构建镜像并验证
+            docker build -t myapp:v1 . || { echo "❌ 构建失败"; exit 1; }
+            docker images | grep myapp || { echo "❌ 镜像不存在"; exit 1; }
+
+            # 启动容器
+            docker run -d -p 8080:80 --name myblog myapp:v1 || { echo "❌ 运行失败"; exit 1; }
+            echo "✅ 部署完成"
     
