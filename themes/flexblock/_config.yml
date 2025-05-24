@@ -5,7 +5,7 @@ menu:
   友链: /links
 
 # 主页banner图
-banner: /image/banner.png
+banner: https://cdn.jsdelivr.net/gh/qqx12345/resource/img/banner.webp
 
 # 站点通知信息
 notice: 高考倒计时30天
@@ -14,7 +14,7 @@ notice: 高考倒计时30天
 # 作者信息
 author:
   name: 03作者
-  avatar: /image/author.jpeg
+  avatar: https://cdn.jsdelivr.net/gh/qqx12345/resource/img/author.webp
   description: 不说话就是睡着了
 
 toc:
