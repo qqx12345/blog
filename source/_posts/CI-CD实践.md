@@ -3,7 +3,7 @@ title: CI/CD实践
 date: 2025-05-16 13:58:41
 tags: github actions
 categories: 运维
-cover : https://cdn.jsdelivr.net/gh/qqx12345/resource/img/2.webp
+cover : http://sona-nyl.oss-cn-hangzhou.aliyuncs.com/img/2.webp
 ---
 ## 前言
 两个月前，当我还拿着刚买的服务器手动部署环境时，每一次部署和更新都要手打Linux命令，属实是非常麻烦。而且如果要给服务器加上其他服务，在没有GUI的Linux也不方便管理和维护，这对只有一台服务器的我都是无法接受的。在了解到docker的容器化思想和CI/CD的流程以后，我决定修改一下服务器的结构。
@@ -11,7 +11,7 @@ cover : https://cdn.jsdelivr.net/gh/qqx12345/resource/img/2.webp
 ## 服务器更新
 以前我部署服务都需要安装全局环境，但如果在服务器需要频繁更新环境时，这个做法耗时耗力，而且不方便管理，容易造成不必要的资源浪费。而docker就适合解决这些问题--解决环境之间迁移困难和统一部署封装。于是我把每个需要运行的服务打包成一个docker image镜像，然后对每个服务的仓库设置对应的 github 工作流监听每次仓库的 push 然后完成工作脚本，实现对docker镜像和容器的自动搭建。
 <br>
-![服务器架构图](https://cdn.jsdelivr.net/gh/qqx12345/resource/img/server.webp)
+![服务器架构图](http://sona-nyl.oss-cn-hangzhou.aliyuncs.com/img/server.webp)
 
 ## 实现流程
 

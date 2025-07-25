@@ -5,16 +5,16 @@ menu:
   友链: /links
 
 # 主页banner图
-banner: https://cdn.jsdelivr.net/gh/qqx12345/resource/img/banner.webp
+banner: http://sona-nyl.oss-cn-hangzhou.aliyuncs.com/img/banner.webp
 
 # 站点通知信息
-notice: 这个作者很懒，什么都没有留下
+notice: 更新图片源至阿里云oss服务
 
 
 # 作者信息
 author:
   name: 03作者
-  avatar: https://cdn.jsdelivr.net/gh/qqx12345/resource/img/author.webp
+  avatar: http://sona-nyl.oss-cn-hangzhou.aliyuncs.com/img/author.webp
   description: 不说话就是睡着了
 
 toc:
