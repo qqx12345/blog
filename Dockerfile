@@ -5,7 +5,7 @@ COPY . .
 
 RUN npm install -g hexo-cli && npm install && hexo clean && hexo generate
 
-FROM hub-mirror.c.163.com/library/nginx:alpine
+FROM registry.cn-hangzhou.aliyuncs.com/library/nginx:alpine
 
 COPY --from=builder /blog/public /usr/share/nginx/html
 
