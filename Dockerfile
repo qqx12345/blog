@@ -1,11 +1,11 @@
-FROM node:20-alpine AS builder
+FROM registry.cn-hangzhou.aliyuncs.com/library/node:20-alpine AS builder
 WORKDIR /blog
 
 COPY . .
 
 RUN npm install -g hexo-cli && npm install && hexo clean && hexo generate
 
-FROM nginx:alpine
+FROM hub-mirror.c.163.com/library/nginx:alpine
 
 COPY --from=builder /blog/public /usr/share/nginx/html
 
