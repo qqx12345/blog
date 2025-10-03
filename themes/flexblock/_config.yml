@@ -70,7 +70,7 @@ aplayer:
 # docs: http://docs.mathjax.org/en/latest/
 mathjax:
   enable: true
-  inlineMathMark: [['\\(', '\\)'],] #内联公式标记, e.g. [['\\(', '\\)'],['$', '$']]
+  inlineMathMark: [['\\(', '\\)'], ['$', '$']] #内联公式标记, e.g. [['\\(', '\\)'],['$', '$']]
 
 # polyfill 提供旧版本浏览器对新语法的支持
 # website: https://cdnjs.cloudflare.com/polyfill
